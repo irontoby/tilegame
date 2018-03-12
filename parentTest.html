@@ -1,0 +1,15 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <script>
+            var getter = function(event) {
+                console.log('got it!');
+                console.log(event.data);
+            };
+            window.addEventListener('message', getter, false);
+        </script>
+        <iframe height="800" id="gametest1" scrolling="no" src="http://localhost:9191/tilegame/#!/game/5/1" width="950"></iframe>
+    </body>
+</html>

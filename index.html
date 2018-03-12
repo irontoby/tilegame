@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="myapp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, width=device-width">
+	<title ng-bind="title">Loading ...</title>
+
+	<link rel="stylesheet" href="./public/node/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./public/node/bootswatch/yeti/bootstrap.min.css">
+	<link rel="stylesheet" href="./public/node/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./public/node/angular/angular-csp.css">
+    <link rel="stylesheet" href="./public/css/tilegame.css">
+</head>
+<body ng-cloak>
+<ng-view></ng-view><!-- <ng-view/> will cause route looping-->
+
+<script src="./public/node/jquery/dist/jquery.min.js"></script><!--bootstrap requires jquery-->
+<script src="./public/node/angular/angular.min.js"></script>
+<script src="./public/node/angular-route/angular-route.min.js"></script>
+<script src="./public/node/angular-animate/angular-animate.min.js"></script>
+<script src="./public/node/angular-cookies/angular-cookies.min.js"></script>
+<script src="./public/node/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./public/node/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="./public/node/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+<script src="./public/js/config.js"></script>
+<script src="./public/js/app.js"></script>
+<script src="./public/js/controllers.js"></script>
+</body>
+</html>

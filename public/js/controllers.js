@@ -7,11 +7,13 @@ myapp.controller('GameController', function($scope, $timeout, $window, $routePar
     $scope.starting_tokens = $routeParams.tokens !== undefined ? $routeParams.tokens : 5;
 
     $scope.delay = $routeParams.delay !== undefined ? parseInt($routeParams.delay) * 1000 : 3000;
-    $scope.delay += 3000;
+
     $scope.round = 1;
     $scope.max_rounds = 5;
     $scope.free_corrector = true;
     $scope.selection = false;
+
+    console.log('Starting game...');
 
     $scope.status = 'tiles';
     $scope.chosen_tile = false;
@@ -22,7 +24,7 @@ myapp.controller('GameController', function($scope, $timeout, $window, $routePar
 
     $scope.purchased = [];
 
-    $scope.source;
+    $scope.source = $window.parent;
 
     $scope.codes = [
         '',
@@ -127,8 +129,6 @@ myapp.controller('GameController', function($scope, $timeout, $window, $routePar
             return;
         }
 
-        // $scope.source.postMessage( "Tile purchased: " + tile.id, '*');
-
         var purchased_id = tile !== null ? tile.id : null;
         $scope.purchased.push(purchased_id);
         $scope.chosen_tile = false;
@@ -209,6 +209,7 @@ myapp.controller('GameController', function($scope, $timeout, $window, $routePar
                 starting_tokens : $scope.starting_tokens,
                 ending_tokens : $scope.tokens
             };
+
             $scope.source.postMessage( results, '*');
 
         } else {
@@ -263,11 +264,11 @@ myapp.controller('GameController', function($scope, $timeout, $window, $routePar
     };
 
     $window.addEventListener('message', function(event) {
-        console.dir(event.source);
+        if(!event.data.useSource)
+            return;
+
         $scope.source = event.source;
-        //console.log('Setting event source to '+event.source);
+        console.log('Setting event source to '+event.source);
     });
-
-
 
 });
