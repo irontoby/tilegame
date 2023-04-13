@@ -1,5 +1,9 @@
 # TileGame
 
+## NOTE
+
+This repo is archived and read-only.
+
 ## To Install:
 
 - Clone this repository
